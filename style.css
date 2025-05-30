@@ -50,7 +50,7 @@ nav a {
   transition: all 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover, nav a.active {
   background-color: var(--primary-color);
   color: white;
 }
@@ -67,12 +67,14 @@ section {
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-section h2 {
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+section.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .profile-img {
@@ -94,11 +96,12 @@ section h2 {
   background-color: var(--bg-color);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .skill-card h3 {
@@ -121,11 +124,12 @@ section h2 {
   color: white;
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-links a:hover {
   background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 footer {
@@ -133,6 +137,29 @@ footer {
   padding: 2rem;
   background-color: var(--card-bg);
   margin-top: 2rem;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
